@@ -48,7 +48,7 @@ function doSearch() {
           lat = data[0].centre.coordinates[1];
           city = data[0].nom;
           cityDep = data[0].departement.nom;
-          getweather();
+          getWeather();
         } else {
           alertBox.hidden = true;
           cityList.innerHTML =
@@ -73,7 +73,10 @@ function doSearch() {
 
 function doGeoSearch() {
   navigator.geolocation.getCurrentPosition((position) => {
-    console.log(position.coords.latitude + " " + position.coords.longitude);
+    long = position.coords.longitude;
+    lat = position.coords.latitude;
+    city = "Votre position";
+    getWeather();
   });
 
   //TODO finir la géoloc
@@ -85,10 +88,10 @@ function selectCity(event) {
   long = arrLong[cityId];
   lat = arrLat[cityId];
   city = arrCity[cityId];
-  getweather();
+  getWeather();
 }
 
-function getweather() {
+function getWeather() {
   let weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current_weather=true`;
   fetch(weatherUrl)
     .then((response) => response.json())
