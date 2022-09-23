@@ -10,4 +10,6 @@ Juste une petite application JS qui permet de connaître la météo près de che
 
 On peut tester l'app [sur cette page](https://www.julienjego.fr/lab/meteo/).
 
+TODO : ajouter l'autocomplétion pour la recherche.
+
 _That's all folks !_
